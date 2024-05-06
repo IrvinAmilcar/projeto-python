@@ -1,5 +1,8 @@
 def adicionar ():
-    open()
+    file = open("Receitas.txt","a", encoding= "utf8")
+    file.write(input("Adicione a receita..."))
+    file.close()
+    
 
 
 
@@ -31,3 +34,9 @@ while True:
     (função especial)   (8)
     Sair                (0)
     """)
+    escolha = int(input("Escolha uma opção: "))
+    if escolha == 0:
+        break
+    elif escolha == 1:
+        adicionar()
+
