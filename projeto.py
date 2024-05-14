@@ -50,7 +50,7 @@ def Cadastrar_Receitas():
             else:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Programa ENCERRADO!")
-                break
+            break
 
 def Visualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
