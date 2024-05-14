@@ -21,5 +21,5 @@ if inicializador == "start":
         print("""
         Opção selecionada: Adicionar
         """)
-        print('teste')
+        print('teste2')
         
