@@ -40,35 +40,8 @@ def Cadastrar_Receitas():
         print("Receita adicionada com sucesso!")
         continuar = input("Deseja cadastrar outra receita? (s/n): ")
         os.system('cls' if os.name == 'nt' else 'clear')
-        if continuar.lower()!= "s":
-            
-            print("Deseja voltar ao menu (1) ou encerrar o programa (2)?")
-            escolha_c = int(input())
-            if escolha_c == 1:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                menu_principal()
-            else:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                print("Programa ENCERRADO!")
-                break
-
-def Visualizar_receitas():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print("Opção selecionada: Visualizar receitas!")
-
-
-
-    
-
-
-
-
-print("Deseja iniciar o programa? (start)")
-
-inicializador = input()
-os.system('cls' if os.name == 'nt' else 'clear')
-
-if inicializador == 'start':
-    menu_principal()
-else:
-    print("O programa nem iniciou e ja encerrou")
+        print("""
+        Opção selecionada: Adicionar
+        """)
+        while True:
+            escolha ==
