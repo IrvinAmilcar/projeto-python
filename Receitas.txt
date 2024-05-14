@@ -1,0 +1,15 @@
+Receita: cuscus
+País de origem: brasil
+Ingredientes: milho, agua
+Modo de preparo: rale o milho, cozinhe-o
+
+Receita: suco de maracuja
+País de origem: brasil
+Ingredientes: maracuja, agua, açucar
+Modo de preparo: misture a poupa do maracuja em um copo dagua, adicione açucar
+
+Receita: manga com leite
+País de origem: brasil
+Ingredientes: manga, leite
+Modo de preparo: morda a manga, e de um gole no copo de leite
+
