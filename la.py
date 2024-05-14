@@ -1,6 +1,6 @@
 def adicionar ():
     file = open("Receitas.txt","a", encoding= "utf8")
-    file.write(input("Adicione a receita..."))
+    file.write(input("Adicione a teste..."))
     file.close()
     
 
