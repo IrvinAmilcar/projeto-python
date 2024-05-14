@@ -22,3 +22,4 @@ if inicializador == "start":
         Opção selecionada: Adicionar
         """)
         print('teste')
+        
