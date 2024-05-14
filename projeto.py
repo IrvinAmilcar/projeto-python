@@ -21,3 +21,5 @@ if inicializador == "start":
         print("""
         Opção selecionada: Adicionar
         """)
+        while True:
+            escolha ==
