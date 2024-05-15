@@ -6,7 +6,7 @@ def menu_principal():
     Menu Principal______________
 
     (1) Cadastrar novas receitas
-    (2) Consultar receitas
+    (2) Visualizar receitas
     (3) Atualizar receitas
     (4) Excluir receitas 
     (5) Sugerir uma receita
@@ -56,6 +56,20 @@ def Cadastrar_Receitas():
 def Visualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Visualizar receitas!")
+    metodo_de_visualizacao = input("""Você deseja pesquisar por que método?
+Digite [P] para ser por país de origem
+Digite [F] para ser por favoritos
+Digite [D] para ser por pesquisa direta\n""").lower()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    if metodo_de_visualizacao == "p":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Opção escolhida: País de origem")
+    elif metodo_de_visualizacao == "f":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Opção escolhida: Favoritos")
+    elif metodo_de_visualizacao == "d":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Opção escolhida: Pesquisa direta")
     
 
     
@@ -79,4 +93,3 @@ if inicializador == 'start':
     menu_principal()
 else:
     print("O programa nem iniciou e ja encerrou")
-#teste de branch
