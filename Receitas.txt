@@ -18,4 +18,23 @@ País de origem: brasil
 Ingredientes: doce de leite, chocolate
 Modo de preparo: adicione o doce de leite com chocolate na panela
 
+Receita: pao com ovo
+País de origem: brasil
+Ingredientes: pao frances, ovo
+Modo de preparo: frite o ovo, abra o pao, e coma
+
+Receita: caldo de cana
+País de origem: brasil
+Ingredientes: cana de açucar
+Modo de preparo: triture a cana em um copo dagua e beba
+
+Receita: frango ao molho
+País de origem: brasil
+Ingredientes: frango, molho de tomate
+Modo de preparo: asse o frango por 30 minutos e adicione o molho no final
+
+Receita: raspadinha
+País de origem: brasil
+Ingredientes: gelo raspado, sabor artificial de fruta
+Modo de preparo: com o gelo raspado, adicione o sabor artificial
 

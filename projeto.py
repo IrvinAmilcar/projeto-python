@@ -10,7 +10,8 @@ def menu_principal():
     (3) Atualizar receitas
     (4) Excluir receitas 
     (5) Sugerir uma receita
-    (6) Sair
+    (6) Favoritos
+    (7) Sair
     """)
     opcao = int(input("Digite a opção desejada: "))
     if opcao == 1:
@@ -55,9 +56,15 @@ def Cadastrar_Receitas():
 def Visualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Visualizar receitas!")
+    
 
+    
+        
 
-
+    
+    
+    
+        
     
 
 
