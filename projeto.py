@@ -79,4 +79,3 @@ if inicializador == 'start':
     menu_principal()
 else:
     print("O programa nem iniciou e ja encerrou")
-#esse é um teste para ver se meus comiit vai pro principal ou para minha branch
