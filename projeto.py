@@ -79,3 +79,4 @@ if inicializador == 'start':
     menu_principal()
 else:
     print("O programa nem iniciou e ja encerrou")
+#teste de branch
