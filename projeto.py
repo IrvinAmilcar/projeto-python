@@ -6,7 +6,7 @@ def menu_principal():
     Menu Principal______________
 
     (1) Cadastrar novas receitas
-    (2) Consultar receitas
+    (2) Visualizar receitas
     (3) Atualizar receitas
     (4) Excluir receitas 
     (5) Sugerir uma receita
