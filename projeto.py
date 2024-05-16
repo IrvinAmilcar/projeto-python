@@ -20,6 +20,8 @@ def menu_principal():
         Cadastrar_Receitas()
     elif opcao == 2:
         Visualizar_receitas()
+    elif opcao == 3:
+        Atualizar_receitas()
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Opção inválida")
@@ -116,6 +118,20 @@ def Visualizar_receitas():
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Opção inválida!")
         Visualizar_receitas()
+
+def Atualizar_receitas():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Opção selecionada: Atualização de receitas\n")
+    print("Atualizar nome da receita (1)")
+    print("Atualizar ingredientes (2)")
+    print("Atualizar modo de preparo (3)")
+    escolha_a = input("\nSelecione uma operação ou 'sair' para retornar ao menu: ")
+    if escolha_a == 'sair':
+        os.system('cls' if os.name == 'nt' else 'clear')
+        menu_principal()
+
+   
+
 
 
     
