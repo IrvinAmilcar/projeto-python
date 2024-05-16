@@ -1,4 +1,5 @@
 import os
+from time import sleep
 
 def menu_principal():
     print("""
@@ -13,6 +14,7 @@ def menu_principal():
     (6) Favoritos
     (7) Sair
     """)
+    sleep(0.5)
     opcao = int(input("Digite a opção desejada: "))
     if opcao == 1:
         Cadastrar_Receitas()

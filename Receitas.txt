@@ -54,3 +54,8 @@ País de origem: itália
 Ingredientes: massa de pizza, molho de tomate, queijo
 Modo de preparo: prepare a massa da pizza, passe o molho de tomate, distribua os queijos pela pizza, leve ao forno por 40 minutos
 
+Receita: bolo de rolo
+País de origem: brasil
+Ingredientes: bolo, doce de goiaba
+Modo de preparo: passe o doce de goiaba na massa de bolo e enrole
+
