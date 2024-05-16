@@ -25,7 +25,14 @@ def menu_principal():
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Opção inválida")
-        print("__PROGRAMA ENCERRADO__")
+        sleep(1.5)
+        print("Retornando ao menu. . .")
+        sleep(3)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        menu_principal()
+
+        
+        
 
 def Cadastrar_Receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
