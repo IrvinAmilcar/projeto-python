@@ -38,3 +38,14 @@ País de origem: brasil
 Ingredientes: gelo raspado, sabor artificial de fruta
 Modo de preparo: com o gelo raspado, adicione o sabor artificial
 
+Receita: churros
+País de origem: argentina
+Ingredientes: massa, doce de leite
+Modo de preparo: mistura tudo, leve ao forno por 30 minutos
+
+
+Receita: frango ao curry
+País de origem: siberia
+Ingredientes: frango, curry
+Modo de preparo: asse o frango e adicione o curry
+
