@@ -138,7 +138,7 @@ def Atualizar_receitas():
         menu_principal()
 
    
-#oi
+
 
 
     
