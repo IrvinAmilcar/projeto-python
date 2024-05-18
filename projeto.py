@@ -2,6 +2,7 @@ import os
 from time import sleep
 import random
 
+
 def menu_principal():
     print("""
 
@@ -34,8 +35,6 @@ def menu_principal():
         os.system('cls' if os.name == 'nt' else 'clear')
         menu_principal()
 
-        
-        
 
 def Cadastrar_Receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -43,7 +42,8 @@ def Cadastrar_Receitas():
     while True:
         nome_receita = input("Digite o nome da receita: ")
         pais_de_origem = input("Digite o país de origem da receita: ")
-        ingredientes = input("Digite os ingredientes da receita (separados por vírgula): ")
+        ingredientes = input(
+            "Digite os ingredientes da receita (separados por vírgula): ")
         preparo = input("Digite o modo de preparo da receita: ")
 
         with open("Receitas.txt", "a", encoding="utf-8") as f:
@@ -55,8 +55,8 @@ def Cadastrar_Receitas():
         print("Receita adicionada com sucesso!")
         continuar = input("Deseja cadastrar outra receita? (s/n): ")
         os.system('cls' if os.name == 'nt' else 'clear')
-        if continuar.lower()!= "s":
-            
+        if continuar.lower() != "s":
+
             print("Deseja voltar ao menu (1) ou encerrar o programa (2)?")
             escolha_c = int(input())
             if escolha_c == 1:
@@ -66,6 +66,7 @@ def Cadastrar_Receitas():
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Programa ENCERRADO!")
             break
+
 
 def Visualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -81,7 +82,8 @@ def Visualizar_receitas():
             os.system('cls' if os.name == 'nt' else 'clear')
             for linha in f:
                 print(linha.strip())
-        escolha_v1 = int(input("Deseja voltar ao menu (1) ou encerrar o programa (2): "))
+        escolha_v1 = int(
+            input("Deseja voltar ao menu (1) ou encerrar o programa (2): "))
         if escolha_v1 == 1:
             os.system('cls' if os.name == 'nt' else 'clear')
             menu_principal()
@@ -113,7 +115,8 @@ def Visualizar_receitas():
         except FileNotFoundError:
             print("Arquivo 'Receitas.txt' não encontrado!")
 
-        escolha_v1 = input("Deseja voltar ao menu (1) ou encerrar o programa (2): ")
+        escolha_v1 = input(
+            "Deseja voltar ao menu (1) ou encerrar o programa (2): ")
         if escolha_v1 == '1':
             os.system('cls' if os.name == 'nt' else 'clear')
             menu_principal()
@@ -129,13 +132,15 @@ def Visualizar_receitas():
         print("Opção inválida!")
         Visualizar_receitas()
 
+
 def Atualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Atualização de receitas\n")
     print("Atualizar nome da receita (1)")
     print("Atualizar ingredientes (2)")
     print("Atualizar modo de preparo (3)")
-    escolha_a = input("\nSelecione uma operação ou 'sair' para retornar ao menu: ")
+    escolha_a = input(
+        "\nSelecione uma operação ou 'sair' para retornar ao menu: ")
     if escolha_a == 'sair':
         os.system('cls' if os.name == 'nt' else 'clear')
         menu_principal()
@@ -143,7 +148,7 @@ def Atualizar_receitas():
 
 def receitasAleatórias():
     os.system('cls' if os.name == 'nt' else 'clear')
-    numero = random.randint(1,3)
+    numero = random.randint(1, 3)
     with open("receitasAleatórias.txt", "r", encoding="utf8") as file:
         for i in range(numero):
             receita_aleatoria = file.readline()
@@ -151,30 +156,14 @@ def receitasAleatórias():
         for c in receita_aleatoria2:
             print(f"{c}")
         file.seek(0)
-    escolha = input("Deseja escolher outra receita aleatória ou voltar ao menu principal?\nDigite [escolher] para escolher outra receita\nDigite [voltar] para voltar ao menu principal\n")
+    escolha = input(
+        "Deseja escolher outra receita aleatória ou voltar ao menu principal?\nDigite [escolher] para escolher outra receita\nDigite [voltar] para voltar ao menu principal\n")
     if escolha == "escolher":
         os.system('cls' if os.name == 'nt' else 'clear')
         receitasAleatórias()
     elif escolha == "voltar":
         os.system('cls' if os.name == 'nt' else 'clear')
-        menu_principal()        
-
-   
-
-
-
-    
-
-    
-        
-
-    
-    
-    
-        
-    
-
-
+        menu_principal()
 
 
 print("Deseja iniciar o programa? (start)")
