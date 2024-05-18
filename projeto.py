@@ -72,8 +72,7 @@ def visualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Visualizar receitas!")
     print("\nVisualizar todas as receitas (1)")
-    print("Visualizar receitas por nome (2)\n")
-    print("Visualizar receitas pelo país de origem.")
+    print("Visualizar receitas por nome ou país de origem(2)\n")
     escolha_v = (input("Escolha uma operação ou 'sair' para voltar ao menu: "))
     if escolha_v == 'sair':
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -97,7 +96,7 @@ def visualizar_receitas():
             print("Programa ENCERRADO")
     elif escolha_v == '2':
         os.system('cls' if os.name == 'nt' else 'clear')
-        palavra_chave = input("Informe o nome da receita: ")
+        palavra_chave = input("Informe o nome da receita ou o país de origem dela: ")
         try:
             with open("Receitas.txt", "r", encoding="utf-8") as f:
                 linhas = f.readlines()
