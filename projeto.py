@@ -1,5 +1,6 @@
 import os
 from time import sleep
+import random
 
 def menu_principal():
     print("""
@@ -22,6 +23,8 @@ def menu_principal():
         Visualizar_receitas()
     elif opcao == 3:
         Atualizar_receitas()
+    elif opcao == 5:
+        receitasAleatórias()
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Opção inválida")
@@ -136,6 +139,25 @@ def Atualizar_receitas():
     if escolha_a == 'sair':
         os.system('cls' if os.name == 'nt' else 'clear')
         menu_principal()
+
+
+def receitasAleatórias():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    numero = random.randint(1,3)
+    with open("receitasAleatórias.txt", "r", encoding="utf8") as file:
+        for i in range(numero):
+            receita_aleatoria = file.readline()
+            receita_aleatoria2 = receita_aleatoria.split("//")
+        for c in receita_aleatoria2:
+            print(f"{c}")
+        file.seek(0)
+    escolha = input("Deseja escolher outra receita aleatória ou voltar ao menu principal?\nDigite [escolher] para escolher outra receita\nDigite [voltar] para voltar ao menu principal\n")
+    if escolha == "escolher":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        receitasAleatórias()
+    elif escolha == "voltar":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        menu_principal()        
 
    
 
