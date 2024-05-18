@@ -19,11 +19,11 @@ def menu_principal():
     sleep(0.5)
     opcao = int(input("Digite a opção desejada: "))
     if opcao == 1:
-        Cadastrar_Receitas()
+        cadastrar_Receitas()
     elif opcao == 2:
-        Visualizar_receitas()
+        visualizar_receitas()
     elif opcao == 3:
-        Atualizar_receitas()
+        atualizar_receitas()
     elif opcao == 5:
         receitasAleatórias()
     else:
@@ -36,7 +36,7 @@ def menu_principal():
         menu_principal()
 
 
-def Cadastrar_Receitas():
+def cadastrar_Receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Cadastros de receitas!")
     while True:
@@ -68,11 +68,12 @@ def Cadastrar_Receitas():
             break
 
 
-def Visualizar_receitas():
+def visualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Visualizar receitas!")
     print("\nVisualizar todas as receitas (1)")
     print("Visualizar receitas por nome (2)\n")
+    print("Visualizar receitas pelo país de origem.")
     escolha_v = (input("Escolha uma operação ou 'sair' para voltar ao menu: "))
     if escolha_v == 'sair':
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -130,10 +131,10 @@ def Visualizar_receitas():
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Opção inválida!")
-        Visualizar_receitas()
+        visualizar_receitas()
 
 
-def Atualizar_receitas():
+def atualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Atualização de receitas\n")
     print("Atualizar nome da receita (1)")
