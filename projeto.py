@@ -72,7 +72,8 @@ def visualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Visualizar receitas!")
     print("\nVisualizar todas as receitas (1)")
-    print("Visualizar receitas por nome ou país de origem(2)\n")
+    print("Visualizar receitas por nome (2)")
+    print("Visualizar receitas por país de origem (3)\n")
     escolha_v = (input("Escolha uma operação ou 'sair' para voltar ao menu: "))
     if escolha_v == 'sair':
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -96,7 +97,7 @@ def visualizar_receitas():
             print("Programa ENCERRADO")
     elif escolha_v == '2':
         os.system('cls' if os.name == 'nt' else 'clear')
-        palavra_chave = input("Informe o nome da receita ou o país de origem dela: ")
+        palavra_chave = input("Informe o nome da receita: ")
         try:
             with open("Receitas.txt", "r", encoding="utf-8") as f:
                 linhas = f.readlines()
@@ -127,6 +128,41 @@ def visualizar_receitas():
             os.system('cls' if os.name == 'nt' else 'clear')
             print("Opção inválida!")
             print("Programa ENCERRADO")
+    elif escolha_v == '3':
+        os.system('cls' if os.name == 'nt' else 'clear')
+        palavra_chave = input("Informe o nome do país: ").lower()
+        print()
+        try:
+            with open("Receitas.txt", "r", encoding="utf-8") as f:
+                linhas = f.readlines()
+                found = False
+                for e in range(len(linhas)):
+                    if palavra_chave.lower() in linhas[e].lower():
+                        found = True
+                        for g in range(e-1, len(linhas)):
+                            if linhas[g].strip() == "":
+                                break
+                            print(linhas[g].strip())
+                        print()
+
+                if not found:
+                    print("País não encontrado!")
+        except FileNotFoundError:
+            print("Arquivo 'Receitas.txt' não encontrado!")
+        while True:
+            escolha_v1 = input(
+                "Deseja voltar ao menu (1) ou encerrar o programa (2): ")
+            if escolha_v1 == '1':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu_principal()
+            elif escolha_v1 == '2':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Programa ENCERRADO!")
+            else:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Opção inválida!\nDigite uma das opções informadas.")
+                sleep(2)
+                continue
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Opção inválida!")
@@ -156,14 +192,19 @@ def receitasAleatórias():
         for c in receita_aleatoria2:
             print(f"{c}")
         file.seek(0)
-    escolha = input(
-        "Deseja escolher outra receita aleatória ou voltar ao menu principal?\nDigite [escolher] para escolher outra receita\nDigite [voltar] para voltar ao menu principal\n")
-    if escolha == "escolher":
-        os.system('cls' if os.name == 'nt' else 'clear')
-        receitasAleatórias()
-    elif escolha == "voltar":
-        os.system('cls' if os.name == 'nt' else 'clear')
-        menu_principal()
+    while True:
+        escolha = input(
+            "Deseja escolher outra receita aleatória ou voltar ao menu principal?\nDigite [escolher] para escolher outra receita\nDigite [voltar] para voltar ao menu principal\n")
+        if escolha == "escolher":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            receitasAleatórias()
+        elif escolha == "voltar":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            menu_principal()
+        else:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Digite uma opção dentre as informadas\n")
+            continue
 
 
 print("Deseja iniciar o programa? (start)")
