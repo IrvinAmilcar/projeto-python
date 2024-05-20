@@ -24,6 +24,8 @@ def menu_principal():
         visualizar_receitas()
     elif opcao == 3:
         atualizar_receitas()
+    elif opcao == 4:
+        excluir_receitas()
     elif opcao == 5:
         receitasAleatórias()
     else:
@@ -180,6 +182,37 @@ def atualizar_receitas():
     if escolha_a == 'sair':
         os.system('cls' if os.name == 'nt' else 'clear')
         menu_principal()
+
+def excluir_receitas():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print('Opção selecionada: Excluir receitas!')
+    while True:
+        nome_receita_excluir = input("Digite o nome da receita que deseja excluir: ")
+
+        try:
+            with open("Receitas.txt", "r", encoding="utf-8") as f:
+                linhas = f.readlines()
+
+            found = False
+            with open("Receitas.txt", "w", encoding="utf-8") as f:
+                for linha in linhas:
+                    if nome_receita_excluir.lower() not in linha.lower():
+                        f.write(linha)
+                    else:
+                        found = True
+
+            if found:
+                print("Receita excluída.")
+            else:
+                print("Receita não encontrada.")
+
+        except FileNotFoundError:
+            print("Arquivo 'Receitas.txt' não encontrado.")
+
+        escolha = input("\nDeseja excluir outra receita? (s/n): ")
+        if escolha.lower() != 'sim':
+            break
+
 
 
 def receitasAleatórias():
