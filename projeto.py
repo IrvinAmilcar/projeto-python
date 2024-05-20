@@ -27,6 +27,8 @@ def menu_principal():
             excluir_receitas()
         elif opcao == 5:
             receitasAleatórias()
+        elif opcao == 6:
+            Receitas_favoritas()
         elif opcao == 7:
             print('Obrigado(a) por usar nosso programa!')
             break
@@ -385,6 +387,60 @@ def receitasAleatórias():
             os.system('cls' if os.name == 'nt' else 'clear')
             print("Digite uma opção dentre as informadas\n")
             continue
+
+def Receitas_favoritas():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Opção selecionada: Favoritos")
+    print("\nVisualizar as receitas favoritas (1)")
+    print("Favoritar receitas               (2)")
+    print("Limpar a lista de favoritos      (3)")
+    escolha_f = (input("\nSelecione a opção desejada ou 'sair' para retornar ao menu: "))
+    if escolha_f == 'sair':
+        os.system('cls' if os.name == 'nt' else 'clear')
+        menu_principal()
+    elif escolha_f == '1':
+        os.system('cls' if os.name == 'nt' else 'clear')
+        with open("ReceitasFavoritos.txt", "r", encoding="utf8") as file:
+            conteudo = file.read()
+            print(conteudo)
+            escolha_f1 = input("\nDeseja encerrar o programa 'sair' ou voltar ao menu (1): ")
+            if escolha_f1 == 'sair':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Programa encerrado")
+            elif escolha_f1 == '1':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu_principal()
+    elif escolha_f == '2':
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Opção selecionada: Favoritar receitas")
+        palavra2_chave = input("Digite o nome da receita que deseja favoritar: ").strip().lower()
+        found = False
+    
+        with open("Receitas.txt", "r", encoding="utf8") as file:
+            conteudo = file.read()
+    
+        receitas = conteudo.split('\n\n')
+    
+        for receita in receitas:
+            if palavra2_chave in receita.lower():
+                found = True
+                with open("ReceitasFavoritos.txt", "a", encoding="utf8") as f:  
+                    f.write(receita.strip() + '\n\n')  
+            
+                break
+    
+        if not found:
+            print("Receita não encontrada")
+
+    elif escolha_f == '3':
+        os.system('cls' if os.name == 'nt' else 'clear')
+        with open("ReceitasFavoritos.txt", "w", encoding="utf8") as file:
+            file.write("")
+        print("Lista apagada!")
+        print("\nRetornando ao Menu...")
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("A lista de favoritos foi apagada!")
+        menu_principal()
 
 
 print("Deseja iniciar o programa? (start)")
