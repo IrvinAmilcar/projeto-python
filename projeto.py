@@ -1,5 +1,4 @@
 import os
-from time import sleep
 import random
 
 
@@ -16,26 +15,27 @@ def menu_principal():
     (6) Favoritos
     (7) Sair
     """)
-    sleep(0.5)
-    opcao = int(input("Digite a opção desejada: "))
-    if opcao == 1:
-        cadastrar_Receitas()
-    elif opcao == 2:
-        visualizar_receitas()
-    elif opcao == 3:
-        atualizar_receitas()
-    elif opcao == 4:
-        excluir_receitas()
-    elif opcao == 5:
-        receitasAleatórias()
-    else:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("Opção inválida")
-        sleep(1.5)
-        print("Retornando ao menu. . .")
-        sleep(3)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        menu_principal()
+    while True:
+        opcao = int(input("Digite a opção desejada: "))
+        if opcao == 1:
+            cadastrar_Receitas()
+        elif opcao == 2:
+            visualizar_receitas()
+        elif opcao == 3:
+            atualizar_receitas()
+        elif opcao == 4:
+            excluir_receitas()
+        elif opcao == 5:
+            receitasAleatórias()
+        elif opcao == 7:
+            print('Obrigado(a) por usar nosso programa!')
+            break
+        else:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Opção inválida")
+            print("Retornando ao menu. . .")
+            os.system('cls' if os.name == 'nt' else 'clear')
+            menu_principal()
 
 
 def cadastrar_Receitas():
@@ -163,12 +163,22 @@ def visualizar_receitas():
             else:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Opção inválida!\nDigite uma das opções informadas.")
-                sleep(2)
                 continue
     else:
         os.system('cls' if os.name == 'nt' else 'clear')
         print("Opção inválida!")
-        visualizar_receitas()
+        escolha_c = input("Deseja voltar ao menu (1) ou encerrar o programa (2)? ")
+        if escolha_c == '1':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            menu_principal()
+        elif escolha_c == '2':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Programa ENCERRADO!")
+            return 
+        else:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Opção inválida!")
+
 
 
 def atualizar_receitas():
@@ -351,37 +361,6 @@ def excluir_receitas():
             os.system('cls' if os.name == 'nt' else 'clear')
             print("Opção inválida!\n")
             continue
-
-
-def atualizar_ingredientes_receita():
-    while True:
-        nome_receita_atualizar = input("Digite o nome da receita que deseja atualizar os ingredientes: ")
-        novos_ingredientes = input("Digite os novos ingredientes da receita (separados por vírgula): ")
-
-        try:
-            with open("Receitas.txt", "r", encoding="utf-8") as f:
-                linhas = f.readlines()
-
-            found = False
-            with open("Receitas.txt", "w", encoding="utf-8") as f:
-                for linha in linhas:
-                    if nome_receita_atualizar.lower() in linha.lower():
-                        f.write(linha.replace(linha.split(":")[1].strip(), novos_ingredientes))
-                        found = True
-                    else:
-                        f.write(linha)
-
-            if found:
-                print("Ingredientes da receita atualizados.")
-            else:
-                print("Receita não encontrada.")
-
-        except FileNotFoundError:
-            print("Arquivo 'Receitas.txt' não encontrado.")
-
-        escolha = input("\nDeseja atualizar os ingredientes de outra receita? (sim/n): ")
-        if escolha.lower() != 'sim':
-            break
 
 def receitasAleatórias():
     os.system('cls' if os.name == 'nt' else 'clear')
