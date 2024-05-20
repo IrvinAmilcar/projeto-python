@@ -322,33 +322,51 @@ def excluir_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print('Opção selecionada: Excluir receitas!')
     while True:
-        nome_receita_excluir = input("Digite o nome da receita que deseja excluir: ")
+        escolha = input(
+            "Deseja excluir uma receita ou voltar ao menu principal?\nDigite [escolher] para escolher uma receita\nDigite [voltar] para voltar ao menu principal\n")
+        if escolha == "escolher":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            try:
+                with open("Receitas.txt", "r", encoding="utf-8") as f:
+                    print("Lista de receitas disponíveis para exclusão:")
+                    for linha in f:
+                        if linha.strip():  
+                            print(linha.strip())
+            except FileNotFoundError:
+                print("Arquivo 'Receitas.txt' não encontrado.")
+            
+            nome_receita_excluir = input("Digite o nome da receita que deseja excluir: ")
 
-        try:
-            with open("Receitas.txt", "r", encoding="utf-8") as f:
-                linhas = f.readlines()
+            try:
+                with open("Receitas.txt", "r", encoding="utf-8") as f:
+                    linhas = f.readlines()
 
-            found = False
-            with open("Receitas.txt", "w", encoding="utf-8") as f:
-                for linha in linhas:
-                    if nome_receita_excluir.lower() not in linha.lower():
-                        f.write(linha)
-                    else:
-                        found = True
+                found = False
+                with open("Receitas.txt", "w", encoding="utf-8") as f:
+                    for linha in linhas:
+                        if nome_receita_excluir.lower() not in linha.lower():
+                            f.write(linha)
+                        else:
+                            found = True
 
-            if found:
-                print("Receita excluída.")
-            else:
-                print("Receita não encontrada.")
+                if found:
+                    print("Receita excluída.")
+                else:
+                    print("Receita não encontrada.")
 
-        except FileNotFoundError:
-            print("Arquivo 'Receitas.txt' não encontrado.")
+            except FileNotFoundError:
+                print("Arquivo 'Receitas.txt' não encontrado.")
 
-        escolha = input("\nDeseja excluir outra receita? (sim/n): ")
-        if escolha.lower() != 'sim':
-            break
-
-
+            escolha = input("\nDeseja excluir outra receita? (sim/n): ")
+            if escolha.lower() != 'sim':
+                break
+        elif escolha == "voltar":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            menu_principal()
+        else:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Opção inválida!\n")
+            continue
 
 def receitasAleatórias():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -383,4 +401,4 @@ os.system('cls' if os.name == 'nt' else 'clear')
 if inicializador == 'start':
     menu_principal()
 else:
-    print("O programa nem iniciou e ja encerrou")
+    print("O programa nem iniciou e já encerrou.")
