@@ -173,15 +173,59 @@ def visualizar_receitas():
 
 def atualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("Opção selecionada: Atualização de receitas\n")
-    print("Atualizar nome da receita (1)")
-    print("Atualizar ingredientes (2)")
-    print("Atualizar modo de preparo (3)")
+    print("""Opção selecionada: Atualização de receitas\n
+    Atualizar nome da receita (1)
+    Atualizar país da receita (2)
+    Atualizar ingredientes (3)
+    Atualizar modo de preparo (4)""")
     escolha_a = input(
         "\nSelecione uma operação ou 'sair' para retornar ao menu: ")
-    if escolha_a == 'sair':
+    
+    if escolha_a == '1':
+        atualizar_nome_receita()
+    elif escolha_a == '2':
+        atualizar_pais_receita()
+    elif escolha_a == '3':
+        atualizar_ingredientes_receita()
+    elif escolha_a == '4':
+        atualizar_modo_preparo_receita()
+    elif escolha_a == 'sair':
         os.system('cls' if os.name == 'nt' else 'clear')
         menu_principal()
+    else:
+        print("Opção inválida!")
+        sleep(1)
+        atualizar_receitas()
+
+def atualizar_nome_receita():
+    while True:
+        nome_receita_atualizar = input("Digite o nome da receita que deseja atualizar: ")
+        novo_nome = input("Digite o novo nome da receita: ")
+
+        try:
+            with open("Receitas.txt", "r", encoding="utf-8") as f:
+                linhas = f.readlines()
+
+            found = False
+            with open("Receitas.txt", "w", encoding="utf-8") as f:
+                for linha in linhas:
+                    if nome_receita_atualizar.lower() in linha.lower():
+                        f.write(linha.replace(nome_receita_atualizar, novo_nome))
+                        found = True
+                    else:
+                        f.write(linha)
+
+            if found:
+                print("Receita atualizada.")
+            else:
+                print("Receita não encontrada.")
+
+        except FileNotFoundError:
+            print("Arquivo 'Receitas.txt' não encontrado.")
+
+        escolha = input("\nDeseja atualizar outro nome de receita? (sim/n): ")
+        if escolha.lower() != 'sim':
+            break
 
 def excluir_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -209,7 +253,7 @@ def excluir_receitas():
         except FileNotFoundError:
             print("Arquivo 'Receitas.txt' não encontrado.")
 
-        escolha = input("\nDeseja excluir outra receita? (s/n): ")
+        escolha = input("\nDeseja excluir outra receita? (sim/n): ")
         if escolha.lower() != 'sim':
             break
 
