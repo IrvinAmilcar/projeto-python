@@ -59,3 +59,8 @@ País de origem: brasil
 Ingredientes: bolo, doce de goiaba
 Modo de preparo: passe o doce de goiaba na massa de bolo e enrole
 
+Receita: café
+País de origem: sla
+Ingredientes: pó de café, água, colher
+Modo de preparo: misture tudo
+

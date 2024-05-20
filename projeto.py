@@ -172,14 +172,55 @@ def visualizar_receitas():
 def atualizar_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Atualização de receitas\n")
-    print("Atualizar nome da receita (1)")
-    print("Atualizar ingredientes (2)")
-    print("Atualizar modo de preparo (3)")
-    escolha_a = input(
-        "\nSelecione uma operação ou 'sair' para retornar ao menu: ")
-    if escolha_a == 'sair':
-        os.system('cls' if os.name == 'nt' else 'clear')
-        menu_principal()
+    while True:
+        receita_para_atualizar = input("Qual receita você quer atualizar? ")
+        file = open("Receitas.txt", "r", encoding="utf8")
+        linhas = file.readlines()
+        for i in range(len(linhas)):
+            if receita_para_atualizar in linhas(i):
+                print("""Você quer:
+        Atualizar nome da receita (1)
+        Atualizar país de origem (2)
+        Atualizar ingredientes (3)
+        Atualizar modo de preparo (4)""")
+                escolha_a = input(
+                    "\nSelecione uma operação ou 'sair' para retornar ao menu: ")
+                if escolha_a == "1":
+                            escolha_a = "Receita"
+                            atualizacao = input("Qual é o novo nome da receita? ")
+                            break
+                elif escolha_a == "2":
+                            escolha_a = "País de origem"
+                            atualizacao = input("Qual é o novo país de origem da receita?")
+                            break
+                elif escolha_a == "3":
+                            escolha_a = "Ingredientes"
+                            atualizacao = input("Digite a nova lista de ingredientes:\nObs: Cada ingrediente deve estar separado por vírgula:\n")
+                            break
+                elif escolha_a == "4":
+                            escolha_a = "Modo de preparo"
+                elif escolha_a == 'sair':
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    menu_principal()
+                else:
+                    print("Opção inválida\nEscolha uma opção dentre as informadas")
+                    continue
+                file = open("Receitas.txt", "r", encoding="utf8")
+                linhas = file.readlines()
+                file.close()
+                file = open("Receitas.txt", "a", encoding="utf8")
+                for i in range(len(linhas)):
+                    if receita_para_atualizar in linhas[i]:
+                        break
+                for c in range(i, i+4):
+                    if escolha_a in linhas[c]:
+                        for b in range(c):
+                            if b == c:
+                                file.write(f"{escolha_a}: {atualizacao}")
+                            else:
+                                file.write("")
+        
+
 
 
 def receitasAleatórias():
