@@ -3,43 +3,49 @@ import random
 
 
 def menu_principal():
-    print("""
-
-    Menu Principal______________
-
-    (1) Cadastrar novas receitas
-    (2) Visualizar receitas
-    (3) Atualizar receitas
-    (4) Excluir receitas 
-    (5) Sugerir uma receita
-    (6) Favoritos
-    (7) Sair
-    """)
     while True:
-        opcao = int(input("Digite a opção desejada: "))
-        if opcao == 1:
-            cadastrar_Receitas()
-        elif opcao == 2:
-            visualizar_receitas()
-        elif opcao == 3:
-            receita_escolhida = input("Qual receita você quer atualizar? ")
-            atualizar_receitas(receita_escolhida.lower())
-        elif opcao == 4:
-            receita_escolhida = input("Digite o nome da receita escolhida: ")
-            excluir_receitas(receita_escolhida.lower())
-        elif opcao == 5:
-            receitasAleatórias()
-        elif opcao == 6:
-            receitas_favoritas()
-        elif opcao == 7:
-            print('Obrigado(a) por usar nosso programa!')
-            break
-        else:
+        print("""
+
+        Menu Principal______________
+
+        (1) Cadastrar novas receitas
+        (2) Visualizar receitas
+        (3) Atualizar receitas
+        (4) Excluir receitas 
+        (5) Sugerir uma receita
+        (6) Favoritos
+        (7) Sair
+        """)
+        try:
+            opcao = int(input("Digite a opção desejada: "))
+            if opcao == 1:
+                cadastrar_Receitas()
+            elif opcao == 2:
+                visualizar_receitas()
+            elif opcao == 3:
+                receita_escolhida = input("Qual receita você quer atualizar? ")
+                atualizar_receitas(receita_escolhida.lower())
+            elif opcao == 4:
+                receita_escolhida = input("Digite o nome da receita escolhida: ")
+                excluir_receitas(receita_escolhida.lower())
+            elif opcao == 5:
+                receitasAleatórias()
+            elif opcao == 6:
+                receitas_favoritas()
+            elif opcao == 7:
+                print('Obrigado(a) por usar nosso programa!')
+                break
+            else:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Opção inválida")
+                print("Digite um número dentre os informados")
+                menu_principal()
+        except ValueError:
             os.system('cls' if os.name == 'nt' else 'clear')
-            print("Opção inválida")
-            print("Retornando ao menu. . .")
-            os.system('cls' if os.name == 'nt' else 'clear')
-            menu_principal()
+            print("Digite um número inteiro dentre as opções informadas")
+            print()
+            continue
+
 
 
 def cadastrar_Receitas():
