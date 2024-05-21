@@ -28,7 +28,7 @@ def menu_principal():
         elif opcao == 5:
             receitasAleatórias()
         elif opcao == 6:
-            Receitas_favoritas()
+            receitas_favoritas()
         elif opcao == 7:
             print('Obrigado(a) por usar nosso programa!')
             break
@@ -45,6 +45,7 @@ def cadastrar_Receitas():
     print("Opção selecionada: Cadastros de receitas!")
     while True:
         nome_receita = input("Digite o nome da receita: ")
+        classificacao = input("Digite a classificação dessa receita: ")
         pais_de_origem = input("Digite o país de origem da receita: ")
         ingredientes = input(
             "Digite os ingredientes da receita (separados por vírgula): ")
@@ -52,6 +53,7 @@ def cadastrar_Receitas():
 
         with open("Receitas.txt", "a", encoding="utf-8") as f:
             f.write(f"Receita: {nome_receita}\n")
+            f.write(f"Categoria: {classificacao}\n")
             f.write(f"País de origem: {pais_de_origem}\n")
             f.write(f"Ingredientes: {ingredientes}\n")
             f.write(f"Modo de preparo: {preparo}\n\n")
@@ -77,7 +79,8 @@ def visualizar_receitas():
     print("Opção selecionada: Visualizar receitas!")
     print("\nVisualizar todas as receitas (1)")
     print("Visualizar receitas por nome (2)")
-    print("Visualizar receitas por país de origem (3)\n")
+    print("Visualizar receitas por país de origem (3)")
+    print("Mostrar receitas por categoria (4)\n")
     escolha_v = (input("Escolha uma operação ou 'sair' para voltar ao menu: "))
     if escolha_v == 'sair':
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -143,7 +146,7 @@ def visualizar_receitas():
                 for e in range(len(linhas)):
                     if palavra_chave.lower() in linhas[e].lower():
                         found = True
-                        for g in range(e-1, len(linhas)):
+                        for g in range(e-2, len(linhas)):
                             if linhas[g].strip() == "":
                                 break
                             print(linhas[g].strip())
@@ -151,6 +154,41 @@ def visualizar_receitas():
 
                 if not found:
                     print("País não encontrado!")
+        except FileNotFoundError:
+            print("Arquivo 'Receitas.txt' não encontrado!")
+        while True:
+            escolha_v1 = input(
+                "Deseja voltar ao menu (1) ou encerrar o programa (2): ")
+            if escolha_v1 == '1':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu_principal()
+            elif escolha_v1 == '2':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Programa ENCERRADO!")
+            else:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Opção inválida!\nDigite uma das opções informadas.")
+                continue
+    elif escolha_v == "4":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        palavra_chave = input("Informe o nome da classificação:\n[Digite sem acentuação]\n").lower()
+        print()
+        try:
+            with open("Receitas.txt", "r", encoding="utf-8") as f:
+                linhas = f.readlines()
+                found = False
+                for e in range(len(linhas)): #"e" vai percorrer a lista "linhas"
+                    if "Categoria" in linhas[e]:
+                        if palavra_chave.lower() in linhas[e].lower():
+                                found = True
+                                for g in range(e-1, len(linhas)):
+                                    if linhas[g].strip() == "":
+                                        break
+                                    print(linhas[g].strip())
+                                print()
+
+                if not found:
+                    print("Nenhuma receita com essa classificação foi encontrada!")
         except FileNotFoundError:
             print("Arquivo 'Receitas.txt' não encontrado!")
         while True:
@@ -388,7 +426,7 @@ def receitasAleatórias():
             print("Digite uma opção dentre as informadas\n")
             continue
 
-def Receitas_favoritas():
+def receitas_favoritas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Opção selecionada: Favoritos")
     print("\nVisualizar as receitas favoritas (1)")
