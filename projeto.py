@@ -219,139 +219,6 @@ def visualizar_receitas():
             os.system('cls' if os.name == 'nt' else 'clear')
             print("Opção inválida!")
 
-
-
-def atualizar_receitas():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print("""Opção selecionada: Atualização de receitas\n
-    Atualizar nome da receita (1)
-    Atualizar país da receita (2)
-    Atualizar ingredientes (3)
-    Atualizar modo de preparo (4)""")
-    escolha_a = input(
-        "\nSelecione uma operação ou 'sair' para retornar ao menu: ")
-    
-    if escolha_a == '1':
-        while True:
-            nome_receita_atualizar = input("Digite o nome da receita que deseja atualizar: ")
-            novo_nome = input("Digite o novo nome da receita: ")
-
-            try:
-                with open("Receitas.txt", "r", encoding="utf-8") as f:
-                    linhas = f.readlines()
-
-                found = False
-                with open("Receitas.txt", "w", encoding="utf-8") as f:
-                    for linha in linhas:
-                        if nome_receita_atualizar.lower() in linha.lower():
-                            f.write(linha.replace(nome_receita_atualizar, novo_nome))
-                            found = True
-                        else:
-                            f.write(linha)
-
-                if found:
-                    print("Receita atualizada.")
-                else:
-                    print("Receita não encontrada.")
-
-            except FileNotFoundError:
-                print("Arquivo 'Receitas.txt' não encontrado.")
-
-            escolha = input("\nDeseja atualizar outro nome de receita? (sim/n): ")
-            if escolha.lower() != 'sim':
-                break 
-
-    elif escolha_a == '2':
-        while True:
-            nome_receita_atualizar = input("Digite o nome da receita que deseja atualizar o país: ")
-            novo_pais = input("Digite o novo país da receita: ")
-
-            try:
-                with open("Receitas.txt", "r", encoding="utf-8") as f:
-                    linhas = f.readlines()
-
-                found = False
-                with open("Receitas.txt", "w", encoding="utf-8") as f:
-                    for linha in linhas:
-                        if nome_receita_atualizar.lower() in linha.lower():
-                            f.write(linha.replace(nome_receita_atualizar, novo_pais))
-                            found = True
-                        else:
-                            f.write(linha)
-
-                if found:
-                    print("País da receita atualizado.")
-                else:
-                    print("Receita não encontrada.")
-
-            except FileNotFoundError:
-                print("Arquivo 'Receitas.txt' não encontrado.")
-
-            escolha = input("\nDeseja atualizar o país de outra receita? (sim/n): ")
-            if escolha.lower() != 'sim':
-                break
-
-
-    elif escolha_a == '3':
-            while True:
-                nome_receita_atualizar = input("Digite o nome da receita que deseja atualizar os ingredientes: ")
-                novos_ingredientes = input("Digite os novos ingredientes da receita (separados por vírgula): ")
-
-                try:
-                    with open("Receitas.txt", "r", encoding="utf-8") as f:
-                        linhas = f.readlines()
-
-                    found = False
-                    with open("Receitas.txt", "w", encoding="utf-8") as f:
-                        for linha in linhas:
-                            if nome_receita_atualizar.lower() in linha.lower():
-                                f.write(linha.replace(linha.split(":")[1].strip(), novos_ingredientes))
-                                found = True
-                            else:
-                                f.write(linha)
-
-                    if found:
-                        print("Ingredientes da receita atualizados.")
-                    else:
-                        print("Receita não encontrada.")
-
-                except FileNotFoundError:
-                    print("Arquivo 'Receitas.txt' não encontrado.")
-
-                escolha = input("\nDeseja atualizar os ingredientes de outra receita? (sim/n): ")
-                if escolha.lower() != 'sim':
-                    break           
-
-    elif escolha_a == '4':
-        while True:
-            nome_receita_atualizar = input("Digite o nome da receita que deseja atualizar o modo de preparo: ")
-            novo_modo_preparo = input("Digite o novo modo de preparo da receita: ")
-
-            try:
-                with open("Receitas.txt", "r", encoding="utf-8") as f:
-                    linhas = f.readlines()
-
-                found = False
-                with open("Receitas.txt", "w", encoding="utf-8") as f:
-                    for linha in linhas:
-                        if nome_receita_atualizar.lower() in linha.lower():
-                            f.write(linha.replace(linha.split(":")[1].strip(), novo_modo_preparo))
-                            found = True
-                        else:
-                            f.write(linha)
-
-                if found:
-                    print("Modo de preparo da receita atualizado.")
-                else:
-                    print("Receita não encontrada.")
-
-            except FileNotFoundError:
-                print("Arquivo 'Receitas.txt' não encontrado.")
-
-            escolha = input("\nDeseja atualizar o modo de preparo de outra receita? (sim/n): ")
-            if escolha.lower() != 'sim':
-                break
-
 def excluir_receitas():
     os.system('cls' if os.name == 'nt' else 'clear')
     print('Opção selecionada: Excluir receitas!')
@@ -377,11 +244,14 @@ def excluir_receitas():
 
                 found = False
                 with open("Receitas.txt", "w", encoding="utf-8") as f:
-                    for linha in linhas:
-                        if nome_receita_excluir.lower() not in linha.lower():
-                            f.write(linha)
+                    i = 0
+                    while i < len(linhas):
+                        if nome_receita_excluir.lower() not in linhas[i].lower():
+                            f.write(linhas[i])
                         else:
                             found = True
+                            i += 5
+                        i += 1
 
                 if found:
                     print("Receita excluída.")
@@ -401,6 +271,7 @@ def excluir_receitas():
             os.system('cls' if os.name == 'nt' else 'clear')
             print("Opção inválida!\n")
             continue
+
 
 def receitasAleatórias():
     os.system('cls' if os.name == 'nt' else 'clear')
