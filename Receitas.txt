@@ -52,18 +52,11 @@ País de origem: argentina
 Ingredientes: massa, doce de leite
 Modo de preparo: mistura tudo, leve ao forno por 30 minutos
 
-
 Receita: frango ao curry
 Categoria: 
 País de origem: siberia
 Ingredientes: frango, curry
 Modo de preparo: asse o frango e adicione o curry
-
-Receita: pizza classica
-Categoria: massa
-País de origem: itália
-Ingredientes: massa de pizza, molho de tomate, queijo
-Modo de preparo: prepare a massa da pizza, passe o molho de tomate, distribua os queijos pela pizza, leve ao forno por 40 minutos
 
 Receita: bolo de rolo
 Categoria: sobremesas
@@ -71,9 +64,9 @@ País de origem: brasil
 Ingredientes: bolo, doce de goiaba
 Modo de preparo: passe o doce de goiaba na massa de bolo e enrole
 
-Receita: bolo de rolo
-Categoria: sobremesas
-País de origem: estados unidos
-Ingredientes: cobertura, 3 bolas de sorvete de chocolate, 1 colher de chá, 2 e 1/2 xícaras de leite gelado
-Modo de preparo: mistura tudo
+Receita: pizza classica
+Categoria: teste
+País de origem: teste
+Ingredientes: teste, teste
+Modo de preparo: teste
 

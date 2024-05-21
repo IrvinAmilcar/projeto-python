@@ -22,9 +22,11 @@ def menu_principal():
         elif opcao == 2:
             visualizar_receitas()
         elif opcao == 3:
-            atualizar_receitas()
+            receita_escolhida = input("Qual receita você quer atualizar? ")
+            atualizar_receitas(receita_escolhida.lower())
         elif opcao == 4:
-            excluir_receitas()
+            receita_escolhida = input("Digite o nome da receita escolhida: ")
+            excluir_receitas(receita_escolhida.lower())
         elif opcao == 5:
             receitasAleatórias()
         elif opcao == 6:
@@ -219,59 +221,82 @@ def visualizar_receitas():
             os.system('cls' if os.name == 'nt' else 'clear')
             print("Opção inválida!")
 
-def excluir_receitas():
+def excluir_receitas(receita_escolhida):
     os.system('cls' if os.name == 'nt' else 'clear')
     print('Opção selecionada: Excluir receitas!')
-    while True:
-        escolha = input(
-            "Deseja excluir uma receita ou voltar ao menu principal?\nDigite [escolher] para escolher uma receita\nDigite [voltar] para voltar ao menu principal\n")
-        if escolha == "escolher":
-            os.system('cls' if os.name == 'nt' else 'clear')
-            try:
-                with open("Receitas.txt", "r", encoding="utf-8") as f:
-                    print("Lista de receitas disponíveis para exclusão:")
-                    for linha in f:
-                        if linha.strip():  
-                            print(linha.strip())
-            except FileNotFoundError:
-                print("Arquivo 'Receitas.txt' não encontrado.")
-            
-            nome_receita_excluir = input("Digite o nome da receita que deseja excluir: ")
-
-            try:
-                with open("Receitas.txt", "r", encoding="utf-8") as f:
-                    linhas = f.readlines()
-
-                found = False
-                with open("Receitas.txt", "w", encoding="utf-8") as f:
-                    i = 0
-                    while i < len(linhas):
-                        if nome_receita_excluir.lower() not in linhas[i].lower():
-                            f.write(linhas[i])
-                        else:
-                            found = True
-                            i += 5
-                        i += 1
-
-                if found:
-                    print("Receita excluída.")
+    try:
+        with open("Receitas.txt", "r", encoding="utf-8") as f:
+            linhas = f.readlines()
+        found = False
+        with open("Receitas.txt", "w", encoding="utf-8") as f:
+            i = 0
+            while i < len(linhas):
+                if receita_escolhida.lower() not in linhas[i].lower():
+                    f.write(linhas[i])
                 else:
-                    print("Receita não encontrada.")
+                    found = True
+                    i += 5
+                i += 1
 
-            except FileNotFoundError:
-                print("Arquivo 'Receitas.txt' não encontrado.")
-
-            escolha = input("\nDeseja excluir outra receita? (sim/n): ")
-            if escolha.lower() != 'sim':
-                break
-        elif escolha == "voltar":
-            os.system('cls' if os.name == 'nt' else 'clear')
-            menu_principal()
+        if found:
+            print("Receita excluída.")
+            opcao = input("Digite [menu] para voltar ao menu\nDigite [excluir] para excluir outra receita\nDigite [encerrar] para encerrar o programa?\n")
+            if opcao == "menu":
+                menu_principal()
+            elif opcao == "excluir":
+                excluir_receitas()
         else:
             os.system('cls' if os.name == 'nt' else 'clear')
-            print("Opção inválida!\n")
-            continue
+            print("Receita não encontrada.\nDigite uma receita que existe.")
+            excluir_receitas(receita_escolhida)
 
+    except FileNotFoundError:
+        print("Arquivo 'Receitas.txt' não encontrado.")
+
+def atualizar_receitas(receita_escolhida):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print('Opção selecionada: Excluir receitas!')
+    try:
+        with open("Receitas.txt", "r", encoding="utf-8") as f:
+            linhas = f.readlines()
+        found = False
+        with open("Receitas.txt", "w", encoding="utf-8") as f:
+            i = 0
+            while i < len(linhas):
+                if receita_escolhida.lower() not in linhas[i].lower():
+                    f.write(linhas[i])
+                else:
+                    found = True
+                    i += 5
+                i += 1
+        nome_receita = input("Digite o nome da receita: ")
+        classificacao = input("Digite a classificação dessa receita: ")
+        pais_de_origem = input("Digite o país de origem da receita: ")
+        ingredientes = input(
+            "Digite os ingredientes da receita (separados por vírgula): ")
+        preparo = input("Digite o modo de preparo da receita: ")
+
+        with open("Receitas.txt", "a", encoding="utf-8") as f:
+            f.write(f"Receita: {nome_receita}\n")
+            f.write(f"Categoria: {classificacao}\n")
+            f.write(f"País de origem: {pais_de_origem}\n")
+            f.write(f"Ingredientes: {ingredientes}\n")
+            f.write(f"Modo de preparo: {preparo}\n\n")
+
+        print("Operação realizada com êxito!")
+        if found:
+            opcao = input("Digite [menu] para voltar ao menu\nDigite [atualizar] para atualizar outra receita\nDigite [encerrar] para encerrar o programa?\n")
+            if opcao == "menu":
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu_principal()
+            elif opcao == "atualizar":
+                atualizar_receitas()
+        else:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            receita_escolhida = input(("Receita não encontrada.\nDigite uma receita existente"))
+            atualizar_receitas(receita_escolhida.lower())
+    except FileNotFoundError:
+        print("Arquivo 'Receitas.txt' não encontrado.")
 
 def receitasAleatórias():
     os.system('cls' if os.name == 'nt' else 'clear')
