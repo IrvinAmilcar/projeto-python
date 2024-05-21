@@ -65,8 +65,8 @@ Ingredientes: teste, teste
 Modo de preparo: teste
 
 Receita: frango ao curry
-Categoria: internacional
-País de origem: teste
-Ingredientes: teste
-Modo de preparo: teste
+Categoria: teste
+País de origem: teste2
+Ingredientes: teste3
+Modo de preparo: teste4
 

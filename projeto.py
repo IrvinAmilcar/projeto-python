@@ -255,7 +255,6 @@ def excluir_receitas(receita_escolhida):
 
 def atualizar_receitas(receita_escolhida):
     os.system('cls' if os.name == 'nt' else 'clear')
-    print('Opção selecionada: Excluir receitas!')
     try:
         with open("Receitas.txt", "r", encoding="utf-8") as f:
             linhas = f.readlines()
