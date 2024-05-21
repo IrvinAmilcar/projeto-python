@@ -1,61 +1,79 @@
 Receita: cuscus
+Categoria: nordestino
 País de origem: brasil
 Ingredientes: milho, agua
 Modo de preparo: rale o milho, cozinhe-o
 
 Receita: suco de maracuja
+Categoria: liquidos
 País de origem: brasil
 Ingredientes: maracuja, agua, açucar
 Modo de preparo: misture a poupa do maracuja em um copo dagua, adicione açucar
 
 Receita: manga com leite
+Categoria: suicídio
 País de origem: brasil
 Ingredientes: manga, leite
 Modo de preparo: morda a manga, e de um gole no copo de leite
 
 Receita: brigadeiro
+Categoria: doce
 País de origem: brasil
 Ingredientes: doce de leite, chocolate
 Modo de preparo: adicione o doce de leite com chocolate na panela
 
 Receita: pao com ovo
+Categoria: caseiro
 País de origem: brasil
 Ingredientes: pao frances, ovo
 Modo de preparo: frite o ovo, abra o pao, e coma
 
 Receita: caldo de cana
+Categoria: liquidos
 País de origem: brasil
 Ingredientes: cana de açucar
 Modo de preparo: triture a cana em um copo dagua e beba
 
 Receita: frango ao molho
+Categoria: 
 País de origem: brasil
 Ingredientes: frango, molho de tomate
 Modo de preparo: asse o frango por 30 minutos e adicione o molho no final
 
 Receita: raspadinha
+Categoria: sobremesas
 País de origem: brasil
 Ingredientes: gelo raspado, sabor artificial de fruta
 Modo de preparo: com o gelo raspado, adicione o sabor artificial
 
 Receita: churros
+Categoria: fritura
 País de origem: argentina
 Ingredientes: massa, doce de leite
 Modo de preparo: mistura tudo, leve ao forno por 30 minutos
 
 
 Receita: frango ao curry
+Categoria: 
 País de origem: siberia
 Ingredientes: frango, curry
 Modo de preparo: asse o frango e adicione o curry
 
 Receita: pizza classica
+Categoria: massa
 País de origem: itália
 Ingredientes: massa de pizza, molho de tomate, queijo
 Modo de preparo: prepare a massa da pizza, passe o molho de tomate, distribua os queijos pela pizza, leve ao forno por 40 minutos
 
 Receita: bolo de rolo
+Categoria: sobremesas
 País de origem: brasil
 Ingredientes: bolo, doce de goiaba
 Modo de preparo: passe o doce de goiaba na massa de bolo e enrole
+
+Receita: milk shake
+Categoria: sobremesas
+País de origem: estados unidos
+Ingredientes: cobertura, 3 bolas de sorvete de chocolate, 1 colher de chá, 2 e 1/2 xícaras de leite gelado
+Modo de preparo: mistura tudo
 
