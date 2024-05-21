@@ -305,7 +305,7 @@ def atualizar_receitas(receita_escolhida):
 
 def receitasAleatórias():
     os.system('cls' if os.name == 'nt' else 'clear')
-    numero = random.randint(1, 3)
+    numero = random.randint(1, 6)
     with open("receitasAleatórias.txt", "r", encoding="utf8") as file:
         for i in range(numero):
             receita_aleatoria = file.readline()
