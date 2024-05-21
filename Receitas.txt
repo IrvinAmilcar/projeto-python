@@ -52,12 +52,6 @@ País de origem: argentina
 Ingredientes: massa, doce de leite
 Modo de preparo: mistura tudo, leve ao forno por 30 minutos
 
-Receita: frango ao curry
-Categoria: 
-País de origem: siberia
-Ingredientes: frango, curry
-Modo de preparo: asse o frango e adicione o curry
-
 Receita: bolo de rolo
 Categoria: sobremesas
 País de origem: brasil
@@ -68,5 +62,11 @@ Receita: pizza classica
 Categoria: teste
 País de origem: teste
 Ingredientes: teste, teste
+Modo de preparo: teste
+
+Receita: frango ao curry
+Categoria: internacional
+País de origem: teste
+Ingredientes: teste
 Modo de preparo: teste
 
